@@ -179,9 +179,19 @@ export default function CourseDetailsPage() {
                         Start Learning
                       </Button>
                     ) : (
-                      <Button className="w-full mb-4 bg-primary-gradient" onClick={handlePurchase}>
-                        Enroll Now
-                      </Button>
+                      <>
+                        <Button className="w-full mb-4 bg-primary-gradient" onClick={handlePurchase}>
+                          Enroll Now
+                        </Button>
+                        <Button 
+                          className="w-full mb-4" 
+                          variant="outline" 
+                          onClick={() => setLocation(`/preview/${slug}`)}
+                        >
+                          <Play className="h-4 w-4 mr-2" />
+                          Watch Preview
+                        </Button>
+                      </>
                     )}
                     
                     <div className="text-sm text-center text-muted-foreground mb-6">

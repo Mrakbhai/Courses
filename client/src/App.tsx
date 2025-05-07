@@ -15,6 +15,7 @@ import DashboardPage from "@/pages/dashboard";
 import ProfilePage from "@/pages/profile";
 import AdminPage from "@/pages/admin";
 import NotFound from "@/pages/not-found";
+import CoursePreviewPage from "@/pages/course-preview";
 import { useEffect } from "react";
 
 function Router() {
@@ -36,6 +37,7 @@ function Router() {
           <Route path="/" component={HomePage} />
           <Route path="/explore" component={ExplorePage} />
           <Route path="/courses/:slug" component={CourseDetailsPage} />
+          <Route path="/preview/:slug" component={CoursePreviewPage} />
           <Route path="/checkout/:courseId" component={CheckoutPage} />
           <Route path="/dashboard" component={DashboardPage} />
           <Route path="/profile" component={ProfilePage} />
