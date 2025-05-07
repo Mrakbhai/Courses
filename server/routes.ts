@@ -106,6 +106,49 @@ export async function registerRoutes(app: Express): Promise<Server> {
       handleError(err, res);
     }
   });
+  
+  app.post("/api/users/profile", async (req, res) => {
+    try {
+      const { uid, email, fullName, photoURL, phoneNumber, emailVerified, provider } = req.body;
+      
+      if (!uid || !email) {
+        return res.status(400).json({ error: "Missing required fields (uid, email)" });
+      }
+      
+      // Check if user already exists by their Firebase UID
+      let user = await storage.getUserByUid(uid);
+      
+      if (user) {
+        // Update existing user
+        user = await storage.updateUser(user.id, {
+          fullName: fullName || user.fullName,
+          photoURL: photoURL || user.photoURL,
+          phoneNumber: phoneNumber || user.phoneNumber,
+          emailVerified: emailVerified !== undefined ? emailVerified : user.emailVerified,
+          provider: provider || user.provider
+        });
+        
+        return res.json(user);
+      } else {
+        // Create new user
+        const newUser = await storage.createUser({
+          uid,
+          email,
+          fullName: fullName || '',
+          photoURL: photoURL || '',
+          phoneNumber: phoneNumber || '',
+          emailVerified: emailVerified || false,
+          provider: provider || 'firebase',
+          role: 'user',
+          isActive: true
+        });
+        
+        return res.status(201).json(newUser);
+      }
+    } catch (err) {
+      handleError(err, res);
+    }
+  });
 
   // Course purchase and payment endpoints
   app.post("/api/payments/create-order", async (req, res) => {
