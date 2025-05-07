@@ -66,8 +66,8 @@ export function Navbar() {
 
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/courses" className="font-medium hover:text-accent text-foreground">
-              Courses
+            <Link href="/explore" className="font-medium hover:text-accent text-foreground">
+              Explore
             </Link>
             <Link href="/#quiz" className="font-medium hover:text-accent text-foreground">
               Find Your Course
@@ -184,8 +184,8 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden border-t border-border">
           <div className="px-4 pt-2 pb-4 space-y-4">
-            <Link href="/courses" className="block py-2 font-medium text-foreground">
-              Courses
+            <Link href="/explore" className="block py-2 font-medium text-foreground">
+              Explore
             </Link>
             <Link href="/#quiz" className="block py-2 font-medium text-foreground">
               Find Your Course

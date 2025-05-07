@@ -8,6 +8,7 @@ import { queryClient } from "./lib/queryClient";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import HomePage from "@/pages/home";
+import ExplorePage from "@/pages/explore";
 import CourseDetailsPage from "@/pages/course-details";
 import CheckoutPage from "@/pages/checkout";
 import DashboardPage from "@/pages/dashboard";
@@ -33,6 +34,7 @@ function Router() {
       <main>
         <Switch>
           <Route path="/" component={HomePage} />
+          <Route path="/explore" component={ExplorePage} />
           <Route path="/courses/:slug" component={CourseDetailsPage} />
           <Route path="/checkout/:courseId" component={CheckoutPage} />
           <Route path="/dashboard" component={DashboardPage} />
