@@ -16,6 +16,7 @@ import ProfilePage from "@/pages/profile";
 import AdminPage from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 import CoursePreviewPage from "@/pages/course-preview";
+import AuthPage from "@/pages/auth";
 import { useEffect } from "react";
 
 function Router() {
@@ -41,6 +42,7 @@ function Router() {
           <Route path="/checkout/:courseId" component={CheckoutPage} />
           <Route path="/dashboard" component={DashboardPage} />
           <Route path="/profile" component={ProfilePage} />
+          <Route path="/auth" component={AuthPage} />
           <Route path="/admin" component={AdminPage} />
           <Route path="/admin/:path*" component={AdminPage} />
           <Route component={NotFound} />

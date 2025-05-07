@@ -6,11 +6,14 @@ import { z } from "zod";
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   uid: text("uid").notNull().unique(), // Firebase UID
-  username: text("username").notNull().unique(),
   email: text("email").notNull().unique(),
   fullName: text("full_name").notNull(),
   photoURL: text("photo_url"),
-  isAdmin: boolean("is_admin").default(false),
+  phoneNumber: text("phone_number"),
+  emailVerified: boolean("email_verified").default(false),
+  provider: text("provider").default("email"),
+  role: text("role").default("user"), // user, admin, instructor
+  isActive: boolean("is_active").default(true),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

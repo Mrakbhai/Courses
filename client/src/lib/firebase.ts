@@ -158,13 +158,11 @@ export const createOrUpdateUserProfile = async (user: User) => {
     };
 
     // Send the data to our API to create or update user profile
-    const response = await apiRequest('/api/users/profile', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userData),
-    });
+    const response = await apiRequest(
+      'POST',
+      '/api/users/profile',
+      userData
+    );
 
     return response;
   } catch (error) {

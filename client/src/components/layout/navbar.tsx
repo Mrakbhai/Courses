@@ -154,13 +154,13 @@ export function Navbar() {
               <div className="hidden md:flex space-x-3">
                 <Button 
                   variant="outline" 
-                  onClick={openLoginModal}
+                  onClick={() => setLocation('/auth')}
                 >
                   Log In
                 </Button>
                 <Button 
                   className="bg-primary-gradient hover:opacity-90"
-                  onClick={openSignupModal}
+                  onClick={() => setLocation('/auth?tab=signup')}
                 >
                   Sign Up
                 </Button>
@@ -233,14 +233,14 @@ export function Navbar() {
                     <Button 
                       variant="outline" 
                       size="sm"
-                      onClick={openLoginModal}
+                      onClick={() => setLocation('/auth')}
                     >
                       Log In
                     </Button>
                     <Button 
                       size="sm"
                       className="bg-primary-gradient hover:opacity-90"
-                      onClick={openSignupModal}
+                      onClick={() => setLocation('/auth?tab=signup')}
                     >
                       Sign Up
                     </Button>
