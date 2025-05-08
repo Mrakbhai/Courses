@@ -32,7 +32,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authModalTab, setAuthModalTab] = useState<'login' | 'signup'>('login');
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const isMobile = useMobile();
 
   // Close mobile menu when changing location
