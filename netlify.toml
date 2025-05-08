@@ -1,0 +1,9 @@
+[build]
+  # Adjust to wherever your Vite outputs—e.g. "client/dist" or just "dist"
+  publish = "client/dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
